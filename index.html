@@ -1,39 +1,90 @@
-!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consulta de CEP</title>
-</head>
-<body>
- <h1>Informações do estudante</h1>  
- 
- <input type="text" id="nome" placeholder="nome"><br><br>
- <input type="date" id="data de nascimento" placeholder="data de nascimento"><br><br>
- <input type="text" id="nome da escola" placeholder="nome da escola"><br><br>
- <input type="number" id="serie escolar" placeholder="serie escolar"><br><br>
- <input type="text" id="curso que deseja fazer" placeholder="curso que deseja fazer"><br><br>
- <input type="date" id="data_atual" placeholder="escolha data atual"><br><br>
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Informações do estudante</title>
+  </head>
+  <body>
+    <h1>Informações do estudante</h1>
 
- <button onclick="verificar()">verificar</button><br><br>
+    <input type="text" id="nome" placeholder="nome" /><br /><br />
 
+    <input
+      type="date"
+      id="dataNascimento"
+      placeholder="data de nascimento"
+    /><br /><br />
 
- <script>
+    <input
+      type="number"
+      id="idade"
+      placeholder="Digite sua idade"
+    /><br /><br />
 
-    function verificar(){
+    <input
+      type="text"
+      id="nomeEscola"
+      placeholder="nome da escola"
+    /><br /><br />
 
-    const nome = document.getElementById("nome");
-    const dt_nasc = document.getElementById("data de nascimento");
-    const escola  = document.getElementById("nome da escola");
-    const serie = document.getElementById("serie escolar");
-    const curso = document.getElementById("curso que deseja fazer");
-    const data_atual = document.getElementById("data_atual");
-    const idade = data_atual- dt_nasc;
-    }
-    
-if (dt_nasc <= data_atual) {
-    alert ("voce tem menos de 14 anos, espere completar a idade correta")
-}
- </script>
-</body>
+    <input
+      type="number"
+      id="serieEscolar"
+      placeholder="serie escolar"
+    /><br /><br />
+
+    <select name="curso" id="curso">
+      <option value="Web Design">Web Design</option>
+      <option value="Programação">Programação</option>
+    </select><br><br>
+
+    <button onclick="verificar()">Verificar</button><br /><br />
+
+    <script>
+      function verificar() {
+        const nome = document.getElementById("nome").value;
+        const dt_nasc = document.getElementById("dataNascimento").value;
+        const escola = document.getElementById("nomeEscola").value;
+        const serie = document.getElementById("serieEscolar").value;
+        const curso = document.getElementById("curso").value;
+        const idade = Number(document.getElementById("idade").value);
+
+        if (idade < 14) {
+          alert("Você ainda não possui a idade mínima para fazer inscrição");
+        } else if (idade >= 14 && idade <= 18) {
+          alert("Você pode se inscrever para Web Design ou Programação");
+        } else {
+          alert("Você pode fazer cursos PPT e Mentoria");
+        }
+      }
+    </script>
+
+    <style>
+      body {
+        background-color: #437ab4;
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+
+      input,
+      select {
+        padding: 10px;
+        width: 200px;
+        margin-bottom: 10px;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #0c498a;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #061e38;
+      }
+
+  </body>
 </html>
